@@ -11,7 +11,7 @@
 --head:Anton,Impact,"Arial Narrow",sans-serif;--body:Epilogue,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
 color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-padding-top:90px}
+html{scroll-padding-top:90px;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(236,106,52,.25)}a,button{touch-action:manipulation}
 body{margin:0;background:var(--bg);color:var(--fg);font:400 17px/1.7 var(--body)}
 h1,h2,h3{font-family:var(--head);font-weight:400;text-transform:uppercase;line-height:1.05;margin:0 0 .5em;letter-spacing:.01em}
 h1{font-size:clamp(2.4rem,10vw,7rem);overflow-wrap:break-word}.hero .wrap{width:100%}h2{font-size:clamp(2.2rem,5vw,3.6rem);color:var(--orange)}h3{font-size:1.5rem}
@@ -52,7 +52,7 @@ section.s{padding:80px 0}.alt{background:var(--bg2)}
 .orange{background:var(--orange);color:#000}.orange .quote{color:#000}.orange p,.orange a{color:#000}
 .k{color:var(--muted);margin-bottom:10px}.orange .k{color:#000;font-weight:700}
 .facts{padding:24px;border-bottom:1px solid var(--line);color:var(--muted);font-size:1.05rem}.facts p{max-width:none;margin:0}
-.index a{display:grid;grid-template-columns:1fr 1.4fr;gap:30px;padding:30px 0;border-bottom:1px solid var(--line);text-decoration:none;align-items:baseline;transition:padding .2s}
+.index a{position:relative;display:grid;grid-template-columns:1fr 1.4fr;gap:30px;padding:30px 0;border-bottom:1px solid var(--line);text-decoration:none;align-items:baseline;transition:padding .2s}
 .index a:hover{padding-left:14px}.index a:hover h3{color:var(--orange)}.index h3{margin:0;font-size:2rem;transition:color .2s}.index p{margin:0;color:var(--muted)}
 .list{margin:0;padding:0;list-style:none}.list li{padding:16px 0;border-bottom:1px solid var(--line)}.list b{font:400 1.4rem var(--head);text-transform:uppercase;display:block}.list span{color:var(--muted)}
 .links{display:flex;flex-wrap:wrap;gap:8px 22px}.links a{font-weight:700}
@@ -63,9 +63,11 @@ section.s{padding:80px 0}.alt{background:var(--bg2)}
 .checks li::before{content:"";position:absolute;left:3px;top:1.05em;width:10px;height:6px;border-left:3px solid var(--orange);border-bottom:3px solid var(--orange);transform:rotate(-45deg)}
 .quote{font:italic 400 1.45rem/1.45 var(--body);margin:0 0 22px}
 .photos{display:grid;gap:14px}.photos .tall{aspect-ratio:4/5}
-.util{display:none}
+.util{display:none}.hact,#scrim{display:none}
+.index a::after{content:"";position:absolute;right:6px;top:50%;width:11px;height:11px;border-top:3px solid var(--orange);border-right:3px solid var(--orange);transform:translateY(-50%) rotate(45deg);display:none}
 .gal{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(250px,100%),1fr))}
 .band{background:var(--orange);color:#000;padding:60px 0;text-align:center}.band h2{color:#000;margin-bottom:.3em}.band p{margin:0 auto 24px}
+.band.blk{background:#000;color:#fff}.band.blk h2{color:var(--orange)}.band.blk .btn{background:var(--orange);border-color:var(--orange);color:#000}.band.blk .btn:hover{background:#fff;border-color:#fff}
 .band .btn{background:#000;border-color:#000;color:#fff}.band .btn:hover{background:#fff;color:#000;border-color:#fff}
 .form{display:grid;gap:18px;grid-template-columns:1fr 1fr;background:var(--bg2);border:1px solid var(--line);padding:34px}.form .full{grid-column:1/-1}
 label{display:block;font-size:.9rem;font-weight:700;margin-bottom:6px}
@@ -81,6 +83,50 @@ footer h3{font:400 1.1rem var(--head);color:var(--orange)}footer a{display:block
 .flogo{height:64px;width:auto;display:block}
 .copy{border-top:1px solid #333;margin-top:44px;padding-top:22px;opacity:.6;font-size:.82rem}
 .bar{display:none}
+
+.off{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}
+.off>*:nth-child(2){margin-top:44px}
+.off .ph,.off2 .ph{aspect-ratio:var(--r,4/5)}
+.off2{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}.off2>*:nth-child(2){margin-top:44px}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:64px 0;border-bottom:1px solid var(--line)}.feat.rev .media{order:-1}
+.feat h3{font-size:1.9rem}
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:20px}.cols3 .list li{padding:12px 0}
+.pull{font:400 clamp(2rem,6vw,4.4rem)/1.05 var(--head);text-transform:uppercase;max-width:20ch;margin:0}
+.ledger{display:grid;grid-template-columns:1fr 1fr;border:2px solid #000;margin-top:24px}.ledger>div{padding:30px}.ledger>div+div{border-left:2px solid #000;background:var(--bg2)}
+.steps{list-style:none;margin:20px 0 0;padding:0;counter-reset:st;border-top:4px solid #000}
+.steps li{counter-increment:st;display:grid;grid-template-columns:90px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid var(--line);align-items:start}
+.steps li::before{content:counter(st);font:400 3.2rem/1 var(--head);color:var(--orange)}
+.steps b{font:400 1.5rem var(--head);text-transform:uppercase;display:block}.steps span{color:var(--muted)}
+.spec{margin:0;display:grid;grid-template-columns:auto 1fr;border-top:4px solid #000}
+.spec dt,.spec dd{margin:0;padding:16px 0;border-bottom:1px solid var(--line)}.spec dt{font:400 1.1rem var(--head);text-transform:uppercase;color:var(--orange);padding-right:28px}.spec dd{font-weight:500}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.chip{font:700 .9rem var(--body);background:#fff;border:2px solid #000;color:#000;padding:10px 18px;cursor:pointer;transition:background .15s,color .15s}
+.chip:hover{background:var(--orange)}.chip[aria-pressed="true"]{background:#000;color:#fff}
+.gcols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}
+.gcol{display:grid;gap:14px;align-content:start}.gcol:nth-child(2){margin-top:64px}.gcol:nth-child(3){margin-top:22px}
+.gi{position:relative;display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;overflow:hidden;text-align:left;font:inherit;color:inherit}
+.gi .ph{aspect-ratio:var(--r);border:0;background:repeating-linear-gradient(135deg,var(--t) 0 14px,rgba(0,0,0,.08) 14px 15px);transition:transform .35s}
+.gi img{display:block;width:100%;aspect-ratio:var(--r);object-fit:cover;transition:transform .35s}
+.gi:hover .ph,.gi:hover img{transform:scale(1.04)}
+.gi .cap{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(0deg,rgba(0,0,0,.85),transparent);color:#fff;padding:36px 14px 12px;font-size:.88rem;font-weight:500;opacity:0;transform:translateY(8px);transition:opacity .25s,transform .25s}
+.gi:hover .cap,.gi:focus-visible .cap{opacity:1;transform:none}.gi.phi .cap{opacity:1;transform:none;background:none;color:#333;top:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:14px}
+dialog#lb{border:0;padding:0;width:min(1000px,94vw);max-height:92vh;background:#000;color:#fff}dialog#lb::backdrop{background:rgba(0,0,0,.85)}
+#lbm .ph{aspect-ratio:3/2;border:0;max-height:70vh;width:100%;color:#ddd}#lbm img{display:block;width:100%;max-height:74vh;object-fit:contain}
+#lbc{margin:0;padding:14px 18px 0;max-width:none}.lbn{display:flex;gap:10px;padding:12px 18px 18px}
+.lbn button,.lbx{background:#fff;color:#000;border:0;font:700 .9rem var(--body);padding:11px 20px;cursor:pointer}.lbn button:hover,.lbx:hover{background:var(--orange)}
+.lbx{position:absolute;top:10px;right:10px;z-index:2}
+@media (max-width:900px){
+.feat{grid-template-columns:1fr;gap:26px;padding:40px 0}.feat.rev .media{order:0}.feat h3{font-size:1.6rem}
+.off{grid-template-columns:1fr 1fr}.off>*:nth-child(2){margin-top:26px}.off>*:nth-child(3){grid-column:1/-1}.off>*:nth-child(3) .ph{aspect-ratio:16/9}
+.off2>*:nth-child(2){margin-top:26px}
+.cols3{grid-template-columns:1fr;gap:12px}
+.ledger{grid-template-columns:1fr}.ledger>div+div{border-left:0;border-top:2px solid #000}.ledger>div{padding:22px}
+.steps li{grid-template-columns:56px 1fr}.steps li::before{font-size:2.4rem}
+.spec dt{padding-right:18px}
+.gcols{gap:10px}.gcol{gap:10px}.gcol:nth-child(2){margin-top:34px}
+.gi .cap{opacity:1;transform:none;padding:28px 10px 8px;font-size:.78rem}
+.chips{flex-wrap:nowrap;overflow-x:auto;margin-left:-20px;margin-right:-20px;padding:2px 20px 6px;scrollbar-width:none}.chip{flex:0 0 auto}
+}
 @media (min-width:901px){
 .util{display:block;background:#000;color:#fff;font-size:.82rem;max-height:38px;overflow:hidden;transition:max-height .25s}
 header.sm .util{max-height:0}
@@ -116,7 +162,29 @@ nav li a[aria-current],nav .dd li a[aria-current]{background:#ffe3d6}
 nav li.cta,nav li.mcall{grid-column:1/-1}
 nav li.cta a.btn,nav li.cta a.btn:hover{display:block;margin:0;text-align:center;background:var(--orange);color:#000;padding:15px}
 .mcall{display:block}nav li.mcall a,nav li.mcall a:hover{background:#000;color:#fff;text-align:center}
-.bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:75;background:#000;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));gap:10px}.bar .btn{flex:1;text-align:center;padding:13px 8px}body{padding-bottom:72px}}
+.bar{display:block;position:fixed;left:0;right:0;bottom:0;z-index:75;background:#000;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));transform:translateY(110%);transition:transform .3s}.bar.show{transform:none}.bar .btn{display:block;text-align:center;padding:15px 8px;font-size:1rem}
+body[data-page="book"] .bar{display:none}
+footer{padding-bottom:96px}
+.wrap{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+body{font-size:16px;line-height:1.62}
+h1{font-size:clamp(2.6rem,12.5vw,4.5rem)}h2{font-size:clamp(2rem,9vw,2.8rem)}h3{font-size:1.35rem}
+.hact{display:flex;gap:8px;align-items:center}
+.hcall{background:var(--orange);color:#000;font:700 .9rem var(--body);text-decoration:none;height:42px;padding:0 18px;display:flex;align-items:center}
+.hero{min-height:68svh;padding:44px 0 36px}.hero p.lead{font-size:1.1rem}
+.cta-row{gap:10px}.cta-row .btn{flex:1 1 100%;text-align:center}
+.facts{padding:18px 20px;font-size:.98rem}
+.split{gap:26px}section.s{padding:44px 0}.sub{padding:40px 0 28px}.sub p{font-size:1.05rem}
+.photos{grid-template-columns:1fr 1fr;gap:10px}.photos .tall,.photos .ph{aspect-ratio:4/5;font-size:.75rem}
+.index a{padding:22px 34px 22px 0}.index a::after{display:block}.index h3{font-size:1.55rem}.index a:hover{padding-left:0}
+.gal{grid-template-columns:1fr 1fr;gap:8px}.gal .ph{font-size:.72rem}
+.quote{font-size:1.25rem}.band{padding:44px 0}
+.form{padding:20px;gap:14px}#p-book .form{order:-1}
+input,select,textarea{min-height:52px;font-size:16px}textarea{min-height:96px}
+.big{font-size:2rem}.big,.links a{padding:6px 0}
+.checks li{padding-top:10px;padding-bottom:10px}
+footer .g{grid-template-columns:1fr 1fr;gap:26px 18px}footer .g>div:first-child,footer .g>div:last-child{grid-column:1/-1}
+footer a{padding:9px 0}footer .g>div:last-child{display:grid;grid-template-columns:1fr 1fr;column-gap:18px}footer .g>div:last-child h3{grid-column:1/-1}
+body.lock{overflow:hidden}body.lock #scrim{display:block;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:60}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style></head><body>
 <header id="hd"><div class="util"><div class="wrap"><span>Open Monday to Friday, 9am to 5pm &nbsp; 2155 S Sheridan Blvd, Denver</span><span><a class="ph1" href="tel:+13039470444">(303) 947-0444</a><a href="mailto:ngdfitz@msn.com">ngdfitz@msn.com</a></span></div></div><div class="wrap nav">
@@ -129,7 +197,8 @@ nav li.cta a.btn,nav li.cta a.btn:hover{display:block;margin:0;text-align:center
 <li><a href="#contact" data-p="contact">Contact</a></li>
 <li class="cta"><a class="btn" href="#book">Schedule a tour</a></li>
 <li class="mcall"><a href="tel:+13039470444">Call (303) 947-0444</a></li></ul></nav>
-<button class="menu" id="mb" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button></div></header>
+<div class="hact"><a class="hcall" href="tel:+13039470444" aria-label="Call NGD">Call</a><button class="menu" id="mb" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button></div></div></header>
+<div id="scrim"></div>
 <main>
 
 <div class="page" id="p-home">
@@ -153,13 +222,13 @@ nav li.cta a.btn,nav li.cta a.btn:hover{display:block;margin:0;text-align:center
 </div></div></div></section>
 <section class="s orange"><div class="wrap split">
 <div><blockquote class="quote">Dave, the owner, is simply the best automotive resource there is.</blockquote><p class="k">Michael Finn, NGD customer</p></div>
-<div><p>Michael stores cars ranging from a ’57 Porsche to a ’23 GT4 RS with David, who troubleshoots nearly any problem and handles outsourcing when needed.</p><p><a href="https://www.google.com/maps/place/NGD+Collector+Car+Storage/@39.6784909,-105.0591794,17z" rel="noopener">Read our Google reviews</a></p></div>
+<div><p>Michael stores an array of cars with David, from a ’65 Mustang and ’87 Testarossa to a ’23 GT4 RS. David troubleshoots nearly any problem and handles outsourcing when needed.</p><p><a href="https://www.google.com/maps/place/NGD+Collector+Car+Storage/@39.6784909,-105.0591794,17z" rel="noopener">Read our Google reviews</a></p></div>
 </div></section>
 <section class="s"><div class="wrap">
 <h2>Storage, care and restoration</h2>
 <div class="index" style="margin-top:20px">
 <a href="#storage"><h3>Storage</h3><p>Clean, low-dust, alarmed and sprinklered. Car cover and monthly battery maintenance included.</p></a>
-<a href="#restoration"><h3>Restoration and maintenance</h3><p>Mechanical, electrical and body work for cars from 1920 to 1976, finished and made drivable.</p></a>
+<a href="#restoration"><h3>Restoration and maintenance</h3><p>Mechanical, electrical and body work for cars from 1921 to 1976, finished and made drivable.</p></a>
 <a href="#pebble-beach"><h3>Pebble Beach</h3><p>A car prepared by NGD earned Third in Class at the 2025 Concours d’Elegance.</p></a>
 <a href="#hours"><h3>Hours and access</h3><p>Monday to Friday, 9am to 5pm. Your car ready at our door with one hour’s notice.</p></a>
 </div></div></section>
@@ -167,41 +236,144 @@ nav li.cta a.btn,nav li.cta a.btn:hover{display:block;margin:0;text-align:center
 </div>
 
 <div class="page" id="p-storage">
-<section class="sub"><div class="wrap"><h2>Climate-controlled and exceptionally clean</h2><p>Our facility is intensely secure and rivals anyone in town. We maintain batteries, cover the cars and monitor every vehicle. If a tire goes flat, a battery won’t hold a charge or oil appears under your car, you will know before pickup. Whenever we move or charge your car, you will know how it reacted.</p><a class="btn" href="#book">Schedule a tour</a></div></section>
+<section class="sub"><div class="wrap"><h2>Climate-controlled storage for collector cars</h2>
+<p>Our climate controlled, exceptionally clean, and intensely secure facility rivals anyone in town. Our focus is on the automobiles rather than the appearance of the facility. We maintain batteries, cover the cars, and monitor the vehicles. If your vehicle has a tire that goes flat, or an oil slick underneath it, or a battery that won’t stay charged, you will know about it before you come to pick your car up.</p>
+<div class="cta-row" style="max-width:520px"><a class="btn" href="#book">Schedule a private tour</a><a class="btn dark" href="tel:+13039470444">Call (303) 947-0444</a></div></div></section>
+
 <section class="s"><div class="wrap split">
-<div class="ph">Photo: facility interior</div>
-<div><h3>Included with every vehicle</h3><ul class="checks"><li>Car cover</li><li>Monthly battery maintenance</li><li>Vehicle monitoring</li><li>Temperature controlled</li><li>Concrete floors</li><li>No mice or pests</li><li>Very low dust</li><li>Complimentary tire pressure</li></ul></div>
+<div><h2>You will know before you pick it up</h2>
+<p>Anytime we interact with your vehicle, whether monthly charging, or we have to move it for access to another vehicle, you will know about it and you will know how it reacted.</p>
+<p>That is the difference between a place that holds your car and a place that looks after it. Cover and battery maintenance are included for every vehicle.</p></div>
+<div><h3>What we catch before you do</h3>
+<ul class="list"><li><b>A tire that goes flat</b><span>You will know about it before you come to pick your car up.</span></li>
+<li><b>An oil slick underneath</b><span>Same promise: you hear about it first.</span></li>
+<li><b>A battery that won’t stay charged</b><span>Batteries are maintained monthly, and you will know if one won’t stay charged.</span></li>
+<li><b>How your car reacted</b><span>Whenever we charge or move your car, you will know how it reacted.</span></li></ul></div>
 </div></section>
+
+<section class="s alt" style="padding-top:20px;padding-bottom:20px"><div class="wrap">
+<div class="feat"><div><h2>Clean, cool and quiet</h2>
+<p>Dust and pests quietly damage stored cars. This facility is temperature controlled, very low in dust and free of mice and pests.</p>
+<ul class="checks"><li>Temperature controlled</li><li>Concrete floors</li><li>Very low dust</li><li>No mice or pests</li><li>Undercarriage stays pristine</li><li>Car cover stays clean</li></ul></div>
+<div class="media off2"><div class="ph" style="--r:4/5">Photo: inside the climate-controlled facility</div><div class="ph" style="--r:1/1">Photo: cars under covers, rows and aisles</div></div></div>
+<div class="feat rev"><div><h2>Secure and well lit</h2>
+<p>Steel doors, no windows and layers of alarms, with quick help close by.</p>
+<ul class="checks"><li>Sprinkler system</li><li>Smoke alarms</li><li>Security alarms</li><li>Camera alarms</li><li>Steel doors, no windows</li><li>Denver Police substation 2 miles away, quick response time</li></ul></div>
+<div class="media off2"><div class="ph" style="--r:1/1">Photo: steel entrance door and lighting</div><div class="ph" style="--r:4/5">Photo: inside the facility, well lit</div></div></div>
+<div class="feat" style="border:0"><div><h2>Central location, easy access</h2>
+<p>Centrally located in Denver, with move-in and move-out available most of the time and your car ready at our door on short notice.</p>
+<ul class="checks"><li>Open 9am to 5pm, Monday to Friday</li><li>Move-in and move-out most of the time, with advance notice</li><li>Cover and battery maintenance included</li><li>Pickup ready at our door with one hour’s notice</li></ul>
+<p style="margin-top:20px">2155 S Sheridan Blvd, Denver, CO 80227</p><a class="btn dark" href="https://www.google.com/maps/place/2155+S+Sheridan+Blvd,+Denver,+CO+80227" rel="noopener">Get directions</a></div>
+<div class="media off2"><div class="ph" style="--r:4/5">Photo: a car arriving at the facility</div><div class="ph" style="--r:1/1">Photo: the front of the building, 2155 S Sheridan</div></div></div>
+</div></section>
+
+<section class="s"><div class="wrap"><h2>Everything on site</h2>
+<div class="cols3">
+<div><h3>For your car</h3><ul class="list"><li>Wash bay available to customers</li><li>Tire air station</li><li>Jump box and community tools</li><li>Washer and dryer for your detail rags and chamois</li></ul></div>
+<div><h3>For you</h3><ul class="list"><li>Lounge and meeting room, open to club organizations and customers</li><li>Free Wi-Fi</li><li>Clean, contemporary bathroom</li></ul></div>
+<div><h3>Getting in and out</h3><ul class="list"><li>12 ft tall door</li><li>Trailer accessible, with turnaround</li><li>Transport services, including shipping and receiving</li><li>Butler and valet service</li></ul></div>
+</div></div></section>
+
 <section class="s alt"><div class="wrap split">
-<div><h3>Secure and well lit</h3><ul class="checks" style="columns:1"><li>Sprinkler system</li><li>Smoke, security and camera alarms</li><li>Steel doors, no windows</li><li>Denver Police substation 2 miles away</li></ul></div>
-<div><h3>Facilities for owners</h3><ul class="checks"><li>Wash bay</li><li>Tire air station</li><li>Jump box and community tools</li><li>Washer and dryer for detail rags</li><li>Lounge and meeting room</li><li>Free Wi-Fi</li><li>Clean, modern bathroom</li><li>Trailer access with turnaround</li><li>12 ft tall door</li><li>Shipping and receiving</li></ul></div>
+<div><h2>From a ’65 Mustang to a ’23 GT4 RS</h2>
+<p>The collection under our roof spans eras and brands: 1960s classics, 1970s Chevrolet, Ford and Mopar muscle, vintage Cadillacs, trucks and Broncos, and modern exotics and performance cars. They share one set of standards.</p>
+<p><a href="#gallery"><b>See the cars in the gallery</b></a></p></div>
+<div class="off"><div class="ph" style="--r:4/5">Photo: 1960s collector car</div><div class="ph" style="--r:1/1">Photo: 1970s muscle car</div><div class="ph" style="--r:4/5">Photo: modern exotic</div></div>
 </div></section>
-<div class="band"><div class="wrap"><h2>Come see the facility.</h2><a class="btn" href="#book">Schedule a private tour</a></div></div>
+
+<section class="s"><div class="wrap"><h2>Getting started</h2>
+<ol class="steps">
+<li><div><b>Schedule a tour</b><span>Pick a weekday and time with the form, or call (303) 947-0444.</span></div></li>
+<li><div><b>Walk the facility</b><span>See the building, the security and the care first-hand, and ask anything about your car.</span></div></li>
+<li><div><b>Move in</b><span>Move-in is available most of the time with advance notice. The building is trailer accessible, with a turnaround.</span></div></li>
+<li><div><b>Drive it when you like</b><span>Give us one hour’s notice, Monday to Friday, and your car will be waiting at our door.</span></div></li>
+</ol></div></section>
+
+<section class="s orange"><div class="wrap split">
+<div><blockquote class="quote">Dave… is simply the best automotive resource there is. Period.</blockquote><p class="k">Michael Finn, NGD customer</p></div>
+<div><p>Michael stores cars ranging from a ’65 Mustang and ’87 Testarossa to a ’23 GT4 RS with David.</p><p><a href="https://www.google.com/maps/place/NGD+Collector+Car+Storage/@39.6784909,-105.0591794,17z" rel="noopener">Read our Google reviews</a></p></div>
+</div></section>
+<div class="band blk"><div class="wrap"><h2>Come see where your car would live.</h2><a class="btn" href="#book">Schedule a private tour</a></div></div>
 </div>
 
 <div class="page" id="p-restoration">
-<section class="sub"><div class="wrap"><h2>Restoration &amp; maintenance</h2><p>We never intended to be a restoration shop, but our customers insisted. David has restored cars for 40+ years and has won a number of national titles. We do not paint exteriors, but everything else is within our grasp. Painting, chroming and interiors go to skilled subcontractors he personally supervises. His experience centers on American cars from 1921 to 1976, and newer projects are welcome.</p></div></section>
-<section class="s"><div class="wrap split">
-<div><h3>We finish what others started</h3><p>Often a car is restored and the shop tires of it, or the owner tires of paying for it, and the details that make a car enjoyable daily are left undone. David’s goal is for you to drive your collector car, with a special expertise in making old cars usable in the modern world.</p><p>It is not unusual for us to take a finished, shiny car and remove transmissions, engines, window motors, dashes, rear ends and suspensions, make them new again and reinstall them without harming the original restoration.</p></div>
+<section class="sub"><div class="wrap"><h2>Restoration and maintenance</h2>
+<p>We never intended to be a restoration shop, but our customers insisted. David has been restoring cars for 40+ years and has won a number of national titles. Today, the opportunity to work on and revive pieces of history is probably his greatest joy.</p></div></section>
+
+<section class="s"><div class="wrap"><p class="pull">My goal is to get you to drive your collector car.</p><p class="k" style="margin-top:14px">David Fitzgerald, Owner</p></div></section>
+
+<section class="s alt"><div class="wrap split">
+<div><h2>We finish what others started</h2>
+<p>Many times a car is restored, and either the shop gets tired of working on it or the customer gets tired of paying for it. The details that make the car enjoyable on a daily basis are left unattended.</p>
+<p>For the last three years, David’s primary focus has been finishing everyone else’s restoration. He has special expertise in making old cars usable in the modern world.</p></div>
+<div class="off"><div class="ph" style="--r:4/5">Photo: a project mid-restoration</div><div class="ph" style="--r:1/1">Photo: engine bay detail</div><div class="ph" style="--r:4/5">Photo: finished and driving</div></div>
+</div></section>
+
+<section class="s"><div class="wrap"><h2>What we do and what we send out</h2>
+<div class="ledger">
+<div><h3>Done here</h3><ul class="checks" style="columns:1"><li>Mechanical</li><li>Electrical</li><li>Body work</li><li>Everything in restoration other than the items at right</li></ul></div>
+<div><h3>Sent to trusted specialists</h3><ul class="checks" style="columns:1"><li>Exterior paint (we do not paint exteriors)</li><li>Chroming</li><li>Interiors</li></ul><p style="margin:14px 0 0;color:var(--muted)">These go to highly skilled subcontractors whom David personally supervises.</p></div>
+</div>
+<p style="margin-top:26px">David’s experience mostly ranges across American cars from 1921 to 1976, and we have taken on newer projects too.</p></div></section>
+
+<section class="s alt"><div class="wrap split">
+<div><h2>Made new again without harming the original work</h2>
+<p>It is not unusual for us to take a completely restored, shiny car and gut it, then reinstall everything without damaging the original restoration.</p></div>
+<div><h3>Parts we have pulled and renewed in finished cars</h3>
+<ul class="checks"><li>Transmissions</li><li>Engines</li><li>Window motors</li><li>Dashes</li><li>Rear ends</li><li>Suspensions</li></ul>
+<div class="off" style="margin-top:28px;grid-template-columns:1fr 1fr"><div class="ph" style="--r:4/3">Photo: before</div><div class="ph" style="--r:4/3">Photo: after</div></div></div>
+</div></section>
+
+<section class="s"><div class="wrap"><h2>Beyond the shop</h2>
 <ul class="list">
-<li><b>Butler</b><span>Drop-off and pickup at your dealership, specialty shop or home, including DMV trips for plates and registration.</span></li>
+<li><b>Butler</b><span>We drop off and pick up at your dealership, specialty shop or home, and can even handle DMV trips for plates and registration.</span></li>
 <li><b>Valet</b><span>One hour’s notice, Monday to Friday, and your car is ready at our door.</span></li>
-<li><b>Vehicle enhancement</b><span>Paintless dent repair, clear bra, detailing, paint correction, ceramic coat, upholstery and wheel repair, tire replacement.</span></li>
-<li><b>Consulting and collection curation</b><span>Help growing a collection or planning a restoration, and pointers to trusted resources.</span></li>
+<li><b>Vehicle enhancement</b><span>Paintless dent repair, clear bra, detailing, paint correction, ceramic coating, upholstery and wheel repair, and tire replacement. All supervised and proofed.</span></li>
+<li><b>Consulting and collection curation</b><span>Help expanding or restoring a collection, with informed decisions and trusted resources.</span></li>
+<li><b>Host your club</b><span>Hold your meeting here. We can set up a tour, share the history of a car or run a restoration Q&amp;A.</span></li>
 </ul></div></section>
-<section class="s alt"><div class="wrap"><h3>Host your club</h3><p>Hold your meeting here. We can set up a tour, share the history of a car or run a Q&amp;A on restoration.</p></div></section>
-<div class="band"><div class="wrap"><h2>Have a car in mind?</h2><a class="btn" href="#book">Schedule a tour</a></div></div>
+
+<section class="s orange"><div class="wrap split">
+<div><blockquote class="quote">When something needs outsourcing, he knows where to go and will handle it all for you.</blockquote><p class="k">Michael Finn, NGD customer</p></div>
+<div><p>David has also won national titles and, in 2025, took Third in Class at the Pebble Beach Concours d’Elegance.</p><p><a href="#pebble-beach"><b>See the Pebble Beach car</b></a></p></div>
+</div></section>
+<div class="band blk"><div class="wrap"><h2>Have a car in mind?</h2><a class="btn" href="#book">Schedule a private tour</a></div></div>
 </div>
 
 <div class="page" id="p-gallery">
-<section class="sub"><div class="wrap"><h2>Inside NGD</h2><p>The facility, the cars we store and the cars we rebuild.</p></div></section>
-<section class="s"><div class="wrap"><div class="gal"><div class="ph">Photo: facility interior</div><div class="ph">Photo: stored collection</div><div class="ph">Photo: restoration in progress</div><div class="ph">Photo: wash bay</div><div class="ph">Photo: Pebble Beach 2025</div><div class="ph">Photo: lounge</div></div>
-<p class="links" style="margin-top:30px"><a href="https://www.instagram.com/ngdcars" rel="noopener">Instagram</a><a href="https://youtube.com/@ngdcollectorcarstorage" rel="noopener">YouTube</a><a href="https://www.tiktok.com/@ngd.cars" rel="noopener">TikTok</a></p></div></section>
+<section class="sub"><div class="wrap"><h2>Inside NGD</h2>
+<p>Collector cars of every era, the work behind the doors, and a trip to Pebble Beach. There is something new here every day, so follow along on Instagram.</p>
+<div class="chips" id="chips" role="group" aria-label="Filter photos"></div></div></section>
+<section class="s"><div class="wrap"><div class="gcols" id="gcols"></div>
+<p id="gcount" style="margin-top:28px;color:var(--muted)"></p>
+<p class="links"><a href="https://www.instagram.com/ngdcars" rel="noopener">Instagram</a><a href="https://youtube.com/@ngdcollectorcarstorage" rel="noopener">YouTube</a><a href="https://www.tiktok.com/@ngd.cars" rel="noopener">TikTok</a></p></div></section>
+<dialog id="lb" aria-label="Photo viewer"><button class="lbx" id="lbx" aria-label="Close">Close</button><div id="lbm"></div><p id="lbc"></p><div class="lbn"><button id="lbp">Previous</button><button id="lbnx">Next</button></div></dialog>
 </div>
 
 <div class="page" id="p-pebble-beach">
-<section class="sub"><div class="wrap"><h2>Proven at the highest level</h2><p>A car restored and prepared by NGD and David Fitzgerald earned Third in Class at the 2025 Pebble Beach Concours d’Elegance. The same standards of care, craftsmanship and attention to detail go into every automobile entrusted to NGD Collector Car Storage.</p></div></section>
-<section class="s"><div class="wrap split"><div class="ph">Photo: NGD car at Pebble Beach 2025</div><div><blockquote class="quote">Automobiles worth collecting are worth protecting.</blockquote><a class="btn" href="#book">Schedule a tour</a></div></div></section>
+<section class="sub"><div class="wrap"><h2>From Denver to Pebble Beach</h2>
+<p>A restoration years in the making. David Fitzgerald’s 1958 Imperial Crown Limousine took Third in Class at the 2025 Pebble Beach Concours d’Elegance.</p></div></section>
+
+<section class="s"><div class="wrap split">
+<div><dl class="spec"><dt>Car</dt><dd>1958 Imperial Crown Limousine</dd><dt>Owner</dt><dd>David Fitzgerald</dd><dt>Result</dt><dd>Third in Class</dd><dt>Event</dt><dd>2025 Pebble Beach Concours d’Elegance</dd><dt>Prepared by</dt><dd>NGD Collector Car Storage</dd></dl></div>
+<div><p>The Pebble Beach Concours d’Elegance is among the most prestigious classic car competitions in the world. Cars are judged on condition, authenticity and presentation, and this one was years in the making.</p>
+<p>This car was restored and prepared by NGD and David Fitzgerald. The same standards of care, craftsmanship and attention to detail go into every automobile entrusted to NGD Collector Car Storage, whether it is stored here, maintained here or rebuilt here.</p></div>
+</div></section>
+
+<section class="s alt"><div class="wrap"><h2>The week in photos</h2>
+<div class="feat" style="padding-top:30px"><div><h3>On the field</h3><p>The black limousine on the grass above the coast, with a crowd gathered around it.</p></div><div class="media off2"><div class="ph" style="--r:4/5">Photo: the limousine on the Concours field</div><div class="ph" style="--r:1/1">Photo: the crowd around the car</div></div></div>
+<div class="feat rev"><div><h3>The tour road</h3><p>Out on the coastal highway beside the rocky shoreline, and across the bridge with other vintage cars.</p></div><div class="media off2"><div class="ph" style="--r:1/1">Photo: driving the coastal highway</div><div class="ph" style="--r:4/5">Photo: crossing the bridge on tour</div></div></div>
+<div class="feat"><div><h3>The ramp</h3><p>Driven across the ramp in front of a packed crowd, with spectators on the hotel balcony watching.</p></div><div class="media off2"><div class="ph" style="--r:4/5">Photo: David driving across the ramp</div><div class="ph" style="--r:1/1">Photo: spectators on the balcony</div></div></div>
+<div class="feat rev"><div><h3>The winners circle</h3><p>The limousine in the winners circle.</p></div><div class="media off2"><div class="ph" style="--r:1/1">Photo: the car in the winners circle</div><div class="ph" style="--r:4/5">Photo: with the Third in Class recognition</div></div></div>
+<div class="feat" style="border:0"><div><h3>At The Lodge</h3><p>Parked in front of The Lodge.</p></div><div class="media off2"><div class="ph" style="--r:4/5">Photo: the car in front of The Lodge</div><div class="ph" style="--r:1/1">Photo: close detail, chrome and trim</div></div></div>
+</div></section>
+
+<section class="s"><div class="wrap split">
+<div><h2>What it means for your car</h2>
+<p>You do not need a show car to benefit from show-level care. The attention that goes into a Concours entry is the same attention behind the monthly battery maintenance, the covers, the monitoring and the supervised work done here.</p></div>
+<div><p>If you have a restoration that stalled, a car that needs to be made drivable, or a collection that needs a safe home, we would be glad to show you how we work.</p>
+<div class="cta-row"><a class="btn" href="#book">Schedule a private tour</a><a class="btn dark" href="#gallery">More photos</a></div></div>
+</div></section>
 </div>
 
 <div class="page" id="p-hours">
@@ -229,9 +401,9 @@ nav li.cta a.btn,nav li.cta a.btn:hover{display:block;margin:0;text-align:center
 <section class="s"><div class="wrap split">
 <div><a class="big" href="tel:+13039470444">(303) 947-0444</a><p>Prefer to talk? Call during business hours.</p><p>2155 S Sheridan Blvd<br>Denver, CO 80227</p></div>
 <form class="form" id="tf" novalidate>
-<div><label for="name">Name</label><input id="name" name="name" autocomplete="name"><div class="err" data-for="name"></div></div>
-<div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel"><div class="err" data-for="phone"></div></div>
-<div class="full"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email"><div class="err" data-for="email"></div></div>
+<div><label for="name">Name</label><input id="name" name="name" autocomplete="name" autocapitalize="words" enterkeyhint="next"><div class="err" data-for="name"></div></div>
+<div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" enterkeyhint="next"><div class="err" data-for="phone"></div></div>
+<div class="full"><label for="email">Email</label><input id="email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="off" enterkeyhint="next"><div class="err" data-for="email"></div></div>
 <div><label for="date">Preferred day</label><input id="date" name="date" type="date"><div class="err" data-for="date"></div></div>
 <div><label for="time">Preferred time</label><select id="time" name="time"><option value="">Choose a time</option><option>9:00 am</option><option>10:00 am</option><option>11:00 am</option><option>12:00 pm</option><option>1:00 pm</option><option>2:00 pm</option><option>3:00 pm</option><option>4:00 pm</option></select><div class="err" data-for="time"></div></div>
 <div class="full"><label for="v">What are you storing? (optional)</label><textarea id="v" name="v" rows="3" placeholder="Year, make, model and how many cars"></textarea></div>
@@ -246,21 +418,21 @@ nav li.cta a.btn,nav li.cta a.btn:hover{display:block;margin:0;text-align:center
 <div><h3>Company</h3><a href="#about">About</a><a href="#pebble-beach">Pebble Beach</a><a href="#hours">Hours</a><a href="#contact">Contact</a><a href="#book">Schedule a tour</a></div>
 <div><h3>Follow</h3><a href="https://www.instagram.com/ngdcars" rel="noopener">Instagram</a><a href="https://youtube.com/@ngdcollectorcarstorage" rel="noopener">YouTube</a><a href="https://www.tiktok.com/@ngd.cars" rel="noopener">TikTok</a><a href="https://www.google.com/maps/place/NGD+Collector+Car+Storage/@39.6784909,-105.0591794,17z" rel="noopener">Google reviews</a></div>
 </div><div class="copy">© NGD Collector Car Storage. Monday to Friday, 9am to 5pm. Visa and MasterCard accepted.</div></div></footer>
-<div class="bar"><a class="btn out" href="tel:+13039470444">Call</a><a class="btn" href="#book">Schedule a tour</a></div>
+<div class="bar" id="bar"><a class="btn" href="#book">Schedule a private tour</a></div>
 <script>
 var T={home:'Denver Collector Car Storage',storage:'Storage',restoration:'Restoration & Maintenance',gallery:'Gallery','pebble-beach':'Pebble Beach',hours:'Hours & Access',about:'About Us',contact:'Contact',book:'Schedule a Tour'};
 var mb=document.getElementById('mb'),ml=document.getElementById('menu'),hd=document.getElementById('hd');
-function shut(){ml.classList.remove('open');mb.classList.remove('x');mb.setAttribute('aria-expanded','false')}
+var bar=document.getElementById('bar');function shut(){ml.classList.remove('open');mb.classList.remove('x');mb.setAttribute('aria-expanded','false');document.body.classList.remove('lock')}
 function route(){var h=(location.hash||'#home').slice(1);if(!T[h])h='home';
 document.querySelectorAll('.page').forEach(function(p){p.classList.toggle('on',p.id==='p-'+h)});
 document.querySelectorAll('nav a[data-p]').forEach(function(a){if(a.dataset.p===h)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
 document.querySelectorAll('.dd').forEach(function(d){var p=d.querySelector(':scope>a');if(d.querySelector('ul a[aria-current]'))p.setAttribute('aria-current','page');else p.removeAttribute('aria-current')});
-document.title=(h==='home'?'':T[h]+' | ')+'NGD Collector Car Storage';window.scrollTo(0,0);shut()}
+document.title=(h==='home'?'':T[h]+' | ')+'NGD Collector Car Storage';window.scrollTo(0,0);document.body.dataset.page=h;shut()}
 window.addEventListener('hashchange',route);route();
-mb.addEventListener('click',function(){var o=!ml.classList.contains('open');ml.classList.toggle('open',o);mb.classList.toggle('x',o);mb.setAttribute('aria-expanded',o)});
+mb.addEventListener('click',function(){var o=!ml.classList.contains('open');ml.classList.toggle('open',o);mb.classList.toggle('x',o);mb.setAttribute('aria-expanded',o);document.body.classList.toggle('lock',o);sc()});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')shut()});
 document.addEventListener('click',function(e){if(!hd.contains(e.target))shut()});
-function sc(){hd.classList.toggle('sm',window.scrollY>40)}window.addEventListener('scroll',sc,{passive:true});sc();
+function sc(){hd.classList.toggle('sm',window.scrollY>40);bar.classList.toggle('show',window.scrollY>380&&!document.body.classList.contains('lock'))}window.addEventListener('scroll',sc,{passive:true});sc();
 var d=document.getElementById('date'),n=new Date();d.min=n.getFullYear()+'-'+String(n.getMonth()+1).padStart(2,'0')+'-'+String(n.getDate()).padStart(2,'0');
 document.getElementById('tf').addEventListener('submit',function(e){e.preventDefault();var f=e.target,ok=true;
 function er(k,m){f.querySelector('[data-for="'+k+'"]').textContent=m||'';if(m)ok=false}
@@ -272,4 +444,37 @@ er('date',m);er('time',f.time.value?'':'Choose a time.');if(!ok)return;
 var b='Name: '+f.name.value+'\nPhone: '+f.phone.value+'\nEmail: '+f.email.value+'\nPreferred: '+f.date.value+' at '+f.time.value+'\nVehicles: '+(f.v.value||'Not provided');
 location.href='mailto:ngdfitz@msn.com?subject='+encodeURIComponent('Tour request: '+f.name.value)+'&body='+encodeURIComponent(b);
 document.getElementById('done').style.display='block'});
+
+/* GALLERY: to add a photo, add a line below. Format: [category, caption, aspect ratio, optional image address]
+   Categories: s = stored collection, p = Pebble Beach, r = restoration, f = the facility */
+var PH=[
+['s','Modern performance cars in climate-controlled storage','3/2'],['p','The limousine on the Concours field','4/5'],['s','Luxury and exotic sports cars','1/1'],['f','The wash bay','4/3'],
+['s','1960s collector cars','4/5'],['p','Driving the coastal highway','3/2'],['s','Vintage black sports car with chrome and round headlights','1/1'],['r','Restoration in progress','4/5'],
+['s','Black Mercedes SL 65 convertible','3/2'],['p','Across the ramp at Pebble Beach','1/1'],['s','Silver Porsche 911 GT2 RS','4/5'],['f','Lounge and meeting room','3/2'],
+['s','1970s American muscle cars','3/2'],['p','In the winners circle','4/5'],['s','Chevrolet, Ford and Mopar muscle from the 1970s','1/1'],['r','Engine bay detail','3/2'],
+['s','Red vintage Toyota Land Cruiser','4/5'],['p','In front of The Lodge','1/1'],['s','Yellow sports car','3/2'],['f','Car lifts','4/5'],
+['s','White Chevrolet Corvette','3/2'],['p','The crowd on the field','4/5'],['s','Vintage black Cadillac with red wheels','4/5'],['r','Before and after','1/1'],
+['s','Dark green sports car on a lift','3/2'],['p','Crossing the bridge on the tour','3/2'],['s','Vintage red car with whitewall tires','1/1'],['f','The 12 ft entrance door','4/5'],
+['s','Vintage green Ford Bronco','3/2'],['s','Lime green muscle car','4/5'],['s','Vintage maroon pickup','3/2'],['s','Small white vintage Porsche race car','1/1'],['s','Ferrari interior','4/5'],['p','Spectators on the hotel balcony','3/2']
+];
+var CN={all:'All photos',s:'Stored collection',p:'Pebble Beach',r:'Restoration',f:'The facility'},TN={s:'#dcdad5',p:'#f6d6c5',r:'#cfd3d6',f:'#e6e0d2'};
+var gf='all',cur=[],gcn=0;
+function gHTML(it,i,big){var r=it[2],has=!!it[3];var inner=has?'<img src="'+it[3]+'" alt="'+it[1]+'" loading="lazy" style="--r:'+r+'">':'<div class="ph" style="--r:'+r+'">'+(big?'Photo: '+it[1]:'')+'</div>';return big?inner:'<button class="gi'+(has?'':' phi')+'" data-i="'+i+'" style="--r:'+r+';--t:'+TN[it[0]]+'" aria-label="View '+it[1]+'">'+inner+'<span class="cap">'+(has?'':'Photo: ')+it[1]+'</span></button>'}
+function gRender(){var n=window.innerWidth>900?3:2;gcn=n;cur=PH.filter(function(p){return gf==='all'||p[0]===gf});
+var cols=[],h=[];for(var c=0;c<n;c++){cols.push('');h.push(0)}
+cur.forEach(function(it,i){var p=it[2].split('/'),hh=p[1]/p[0],m=0;for(var c=1;c<n;c++)if(h[c]<h[m]-0.02)m=c;cols[m]+=gHTML(it,i);h[m]+=hh});
+document.getElementById('gcols').innerHTML=cols.map(function(c){return '<div class="gcol">'+c+'</div>'}).join('');
+document.getElementById('gcols').style.gridTemplateColumns='repeat('+n+',1fr)';
+document.getElementById('gcount').textContent='Showing '+cur.length+' photo'+(cur.length===1?'':'s')+'. More are added all the time.'}
+var ch=document.getElementById('chips');
+Object.keys(CN).forEach(function(k){var cnt=k==='all'?PH.length:PH.filter(function(p){return p[0]===k}).length,b=document.createElement('button');b.className='chip';b.dataset.k=k;b.textContent=CN[k]+' ('+cnt+')';b.setAttribute('aria-pressed',k==='all');ch.appendChild(b)});
+ch.addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;gf=b.dataset.k;ch.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',x===b)});gRender()});
+var lb=document.getElementById('lb'),li=0;
+function lShow(i){li=(i+cur.length)%cur.length;var it=cur[li];document.getElementById('lbm').innerHTML=gHTML(it,li,true);document.getElementById('lbc').textContent=CN[it[0]]+': '+it[1]+' ('+(li+1)+' of '+cur.length+')'}
+document.getElementById('gcols').addEventListener('click',function(e){var b=e.target.closest('.gi');if(!b)return;lShow(+b.dataset.i);if(lb.showModal)lb.showModal();else lb.setAttribute('open','')});
+document.getElementById('lbx').addEventListener('click',function(){lb.close()});
+document.getElementById('lbp').addEventListener('click',function(){lShow(li-1)});document.getElementById('lbnx').addEventListener('click',function(){lShow(li+1)});
+lb.addEventListener('click',function(e){if(e.target===lb)lb.close()});
+document.addEventListener('keydown',function(e){if(!lb.open)return;if(e.key==='ArrowLeft')lShow(li-1);if(e.key==='ArrowRight')lShow(li+1)});
+gRender();var rt;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){if((window.innerWidth>900?3:2)!==gcn)gRender()},150)});
 </script></body></html>
