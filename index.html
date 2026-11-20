@@ -217,11 +217,22 @@ body.lock{overflow:hidden}body.lock #scrim{display:block;position:fixed;inset:0;
 @media (max-width:900px){.keys{grid-template-columns:1fr}.keys>div{border-right:0;border-bottom:1px solid var(--line);padding:18px 20px}.keys>div:last-child{border-bottom:0}.keys .kv{font-size:1.6rem}
 .index.th a{grid-template-columns:84px 1fr;gap:16px;padding:14px 34px 14px 0}.index.th h3{font-size:1.4rem}}
 
-@media (max-width:600px){
-.off2{grid-template-columns:1fr}
-.off2>*:nth-child(2){margin-top:0}
-}
+
 .socs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:32px}.soc{display:flex;flex-direction:column;gap:6px;background:#000;color:#fff;text-decoration:none;padding:34px 28px;border-bottom:6px solid var(--orange);transition:background .2s,color .2s}.soc svg{width:48px;height:48px;margin-bottom:14px;color:var(--orange);transition:color .2s}.soc .sn{font:2rem/1 Anton,sans-serif;text-transform:uppercase;letter-spacing:.01em}.soc .sh{font-size:.95rem;opacity:.75;overflow-wrap:anywhere}.soc:hover{background:var(--orange);color:#000}.soc:hover svg{color:#000}@media (max-width:700px){.socs{grid-template-columns:1fr;gap:12px}.soc{flex-direction:row;flex-wrap:wrap;align-items:center;padding:22px 20px;column-gap:16px}.soc svg{width:40px;height:40px;margin:0}.soc .sn{font-size:1.6rem}.soc .sh{flex-basis:100%;padding-left:56px;margin-top:-6px}}
+.inq{display:grid;grid-template-columns:1.15fr 1fr;gap:60px;align-items:center}.inq .form{background:#fff;margin-top:26px}.inq-ph .pic{width:100%}#sform{scroll-margin-top:70px}@media (max-width:900px){.inq{grid-template-columns:1fr;gap:30px}.inq-ph .pic{--r:4/3!important;object-position:50% 35%!important}}
+@media (max-width:600px){
+section.s{padding:44px 0}.sub{padding:44px 0 32px}.feat{padding:32px 0;gap:20px}
+.off,.off2{grid-template-columns:1fr 1fr;gap:8px;margin-top:4px}
+.off>*,.off2>*{margin-top:0!important}
+.off>.pic,.off2>.pic:not(:only-child){aspect-ratio:1/1!important}
+.off>.pic:nth-child(3){grid-column:1/-1;aspect-ratio:3/2!important}
+.off2>.pic:only-child{grid-column:1/-1}
+.off2>.pic[style*="grid-column"],.off2>.pic[style*="grid-column"]~.pic{grid-column:1/-1;aspect-ratio:3/2!important}
+.gcols{gap:6px}.gcol{gap:6px}.gcol:nth-child(2),.gcol:nth-child(3){margin-top:0}
+.gi img,.gi .ph{aspect-ratio:1/1!important}
+}
+.one .pic{max-height:620px}
+@media (max-width:600px){#p-storage .one .pic{aspect-ratio:4/3!important}}
 </style></head><body>
 <header id="hd"><div class="util"><div class="wrap"><span>Open Monday to Friday, 9am to 5pm</span><span><a class="ph1" href="tel:+13039470444">(303) 947-0444</a></span></div></div><div class="wrap nav">
 <a class="logo" href="#home" aria-label="NGD Car Storage home"><img alt="NGD Car Storage" src="images/logo.png"></a>
@@ -284,7 +295,7 @@ body.lock{overflow:hidden}body.lock #scrim{display:block;position:fixed;inset:0;
 <div class="page" id="p-storage">
 <section class="sub"><div class="wrap"><h2>Climate-controlled storage for collector cars</h2>
 <p>Our climate controlled, exceptionally clean, and intensely secure facility rivals anyone in town. Our focus is on the automobiles rather than the appearance of the facility.</p>
-<div class="cta-row" style="max-width:520px"><a class="btn" href="#book">Schedule a private tour</a><a class="btn dark" href="tel:+13039470444">Call (303) 947-0444</a></div></div></section>
+<div class="cta-row" style="max-width:520px"><a class="btn" href="#book" data-to="sform">Schedule a private tour</a><a class="btn dark" href="tel:+13039470444">Call (303) 947-0444</a></div></div></section>
 
 <section class="s"><div class="wrap split">
 <div><h2>You will know before you pick it up</h2>
@@ -298,10 +309,10 @@ body.lock{overflow:hidden}body.lock #scrim{display:block;position:fixed;inset:0;
 <div class="feat"><div><h2>Clean, cool and quiet</h2>
 <p>Built to protect a stored car from dust and pests.</p>
 <ul class="checks"><li>Temperature controlled</li><li>Concrete floors</li><li>Very low dust</li><li>No mice or pests</li><li>Undercarriage stays pristine</li><li>Car cover stays clean</li></ul></div>
-<div class="media off2"><img loading="lazy" decoding="async" src="images/porsche_wheel.webp" class="pic" data-img="porsche_wheel" alt="Porsche wheel with red rim peeking from under a protective cover at NGD" style="--r:2/3;object-position:50% 50%"><img loading="lazy" decoding="async" src="images/jag_etype.webp" class="pic" data-img="jag_etype" alt="Jaguar E-Type under a protective cover alongside other stored cars at NGD" style="--r:2/3;object-position:50% 60%"></div></div>
+<div class="media one"><img loading="lazy" decoding="async" src="images/porsche_wheel.webp" class="pic" data-img="porsche_wheel" alt="Porsche wheel with red rim peeking from under a protective cover at NGD" style="--r:4/5;object-position:50% 50%"></div></div>
 <div class="feat rev" style="border:0"><div><h2>Secure and well lit</h2>
 <ul class="checks"><li>Sprinkler system</li><li>Smoke alarms</li><li>Security alarms</li><li>Camera alarms</li><li>Steel doors, no windows</li><li>Denver Police substation 2 miles away, quick response time</li></ul></div>
-<div class="media off2"><img loading="lazy" decoding="async" src="images/shop1.webp" class="pic" data-img="shop1" alt="Inside the NGD facility with cars on lifts" style="--r:1/1;object-position:50% 50%"><img loading="lazy" decoding="async" src="images/shop3.webp" class="pic" data-img="shop3" alt="Classic cars stored inside the well-lit NGD facility" style="--r:4/5;object-position:50% 50%"></div></div>
+<div class="media one"><img loading="lazy" decoding="async" src="images/shop1.webp" class="pic" data-img="shop1" alt="Inside the NGD facility with cars on lifts" style="--r:1/1;object-position:50% 50%"></div></div>
 </div></section>
 
 <section class="s"><div class="wrap"><h2>Everything on site</h2>
@@ -315,18 +326,29 @@ body.lock{overflow:hidden}body.lock #scrim{display:block;position:fixed;inset:0;
 <div><h2>Every era under one roof</h2>
 <p>The collection under our roof spans eras and brands: 1960s classics, 1970s Chevrolet, Ford and Mopar muscle, vintage Cadillacs, trucks and Broncos, and modern exotics and performance cars. They share one set of standards.</p>
 <p><a href="#gallery"><b>See the cars in the gallery</b></a></p></div>
-<div class="off"><img loading="lazy" decoding="async" src="images/cobra2.webp" class="pic" data-img="cobra2" alt="Cobra with orange stripes parked outside NGD" style="--r:4/5;object-position:50% 50%"><img loading="lazy" decoding="async" src="images/jeep1.webp" class="pic" data-img="jeep1" alt="Jeep CJ stored at NGD with American flag" style="--r:1/1;object-position:50% 50%"><img loading="lazy" decoding="async" src="images/bmw1.webp" class="pic" data-img="bmw1" alt="BMW 3.0 CS outside NGD" style="--r:4/5;object-position:50% 50%"></div>
+<div class="one"><img loading="lazy" decoding="async" src="images/cobra2.webp" class="pic" data-img="cobra2" alt="Dark Aston Martin parked under the trees outside NGD" style="--r:4/5;object-position:50% 50%"></div>
 </div></section>
 
 <section class="s"><div class="wrap"><h2>Getting started</h2>
 <ol class="steps">
-<li><div><b>Schedule a tour</b><span>Pick a weekday and time.</span></div></li>
+<li><div><b>Schedule a tour</b><span>Send a request and David will reach out to set a time.</span></div></li>
 <li><div><b>Walk the facility</b><span>See the building, the security and the care first-hand, and ask anything about your car.</span></div></li>
 <li><div><b>Move in</b><span>Arrange a time and bring your car in.</span></div></li>
 <li><div><b>Drive it when you like</b><span>Call ahead and your car will be waiting at our door.</span></div></li>
 </ol></div></section>
 
-<div class="band"><div class="wrap"><h2>Come see where your car would live.</h2><a class="btn" href="#book">Schedule a private tour</a></div></div>
+<section class="s alt" id="sform"><div class="wrap inq">
+<div><h2>Schedule a private tour</h2><p>Tell us about your car and David will follow up to set a time to walk the facility. Prefer to talk? Call <a href="tel:+13039470444">(303) 947-0444</a>.</p>
+<form class="form tourform" novalidate>
+<div class="full"><label for="s-name">Name</label><input id="s-name" name="name" autocomplete="name" autocapitalize="words" enterkeyhint="next"><div class="err" data-for="name"></div></div>
+<div><label for="s-phone">Phone</label><input id="s-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" enterkeyhint="next"><div class="err" data-for="phone"></div></div>
+<div><label for="s-email">Email</label><input id="s-email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="off" enterkeyhint="next"><div class="err" data-for="email"></div></div>
+<div class="full"><label for="s-v">What are you storing? (optional)</label><textarea id="s-v" name="v" rows="3" placeholder="Year, make, model, how many cars, or any questions"></textarea></div>
+<div class="full"><button class="btn" type="submit" style="width:100%">Request my tour</button></div>
+<div class="done" role="status"><b>Almost done.</b> Your email app should have opened with your request. If not, call <a href="tel:+13039470444">(303) 947-0444</a> or email <a href="mailto:ngdfitz@msn.com">ngdfitz@msn.com</a>.</div>
+</form></div>
+<div class="inq-ph"><img loading="lazy" decoding="async" src="images/bw.webp" class="pic" data-img="bw" alt="David Fitzgerald with a 1958 Imperial inside the NGD facility" style="--r:3/4;object-position:50% 50%"></div>
+</div></section>
 </div>
 
 <div class="page" id="p-restoration">
@@ -430,20 +452,20 @@ body.lock{overflow:hidden}body.lock #scrim{display:block;position:fixed;inset:0;
 <div class="page" id="p-contact">
 <section class="sub"><div class="wrap"><h2>Talk to David directly</h2></div></section>
 <section class="s"><div class="wrap split"><div><a class="big" href="tel:+13039470444">(303) 947-0444</a><a class="big" style="font-size:1.3rem" href="mailto:ngdfitz@msn.com">ngdfitz@msn.com</a><p style="margin-top:18px">David Fitzgerald<br>2155 S Sheridan Blvd, Denver, CO 80227</p><a class="btn dark" href="https://www.google.com/maps/place/2155+S+Sheridan+Blvd,+Denver,+CO+80227" rel="noopener">Get directions</a></div>
-<div><h3>Prefer a visit?</h3><p>Pick a day and time and we will confirm your private tour.</p><a class="btn" href="#book">Schedule a private tour</a></div></div></section>
+<div><h3>Prefer a visit?</h3><p>Send a request and David will reach out to set a time for your private tour.</p><a class="btn" href="#book">Schedule a private tour</a></div></div></section>
 </div>
 
 <div class="page" id="p-book">
 <section class="sub"><div class="wrap"><h2>Schedule your tour</h2><p>See the facility, meet David and ask anything. Leave your details and David will reach out to set a time.</p></div></section>
 <section class="s"><div class="wrap split">
 <div><a class="big" href="tel:+13039470444">(303) 947-0444</a><p>Prefer to talk? Give us a call.</p><p style="margin-top:18px">Not ready yet? <a href="https://www.instagram.com/ngdcars" rel="noopener">Follow @ngdcars on Instagram</a> to see what comes through the doors.</p></div>
-<form class="form" id="tf" novalidate>
+<form class="form tourform" id="tf" novalidate>
 <div class="full"><label for="name">Name</label><input id="name" name="name" autocomplete="name" autocapitalize="words" enterkeyhint="next"><div class="err" data-for="name"></div></div>
 <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" enterkeyhint="next"><div class="err" data-for="phone"></div></div>
 <div><label for="email">Email</label><input id="email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="off" enterkeyhint="next"><div class="err" data-for="email"></div></div>
 <div class="full"><label for="v">What are you storing? (optional)</label><textarea id="v" name="v" rows="3" placeholder="Year, make, model, how many cars, or any questions"></textarea></div>
 <div class="full"><button class="btn" type="submit" style="width:100%">Request my tour</button></div>
-<div class="done" id="done" role="status"><b>Almost done.</b> Your email app should have opened with your request. If not, call (303) 947-0444 or email ngdfitz@msn.com.</div>
+<div class="done" id="done" role="status"><b>Almost done.</b> Your email app should have opened with your request. If not, call <a href="tel:+13039470444">(303) 947-0444</a> or email <a href="mailto:ngdfitz@msn.com">ngdfitz@msn.com</a>.</div>
 </form></div></section>
 </div>
 </main>
@@ -470,7 +492,7 @@ mb.addEventListener('click',function(){var o=!ml.classList.contains('open');ml.c
 document.addEventListener('keydown',function(e){if(e.key==='Escape')shut()});
 document.addEventListener('click',function(e){if(!hd.contains(e.target))shut()});
 function sc(){hd.classList.toggle('sm',window.scrollY>40);bar.classList.toggle('show',window.scrollY>380&&!document.body.classList.contains('lock'))}window.addEventListener('scroll',sc,{passive:true});sc();
-document.getElementById('tf').addEventListener('submit',function(e){e.preventDefault();var f=e.target,ok=true;
+document.querySelectorAll('form.tourform').forEach(function(fm){fm.addEventListener('submit',function(e){e.preventDefault();var f=e.target,ok=true;
 function er(k,m){f.querySelector('[data-for="'+k+'"]').textContent=m||'';if(m)ok=false}
 er('name',f.name.value.trim()?'':'Enter your name.');
 var ph=f.phone.value.replace(/\D/g,'').length>=10,em=/^\S+@\S+\.\S+$/.test(f.email.value);
@@ -479,7 +501,10 @@ er('email',(f.email.value.trim()&&!em)?'Enter a valid email address.':'');if(!ok
 var b='Name: '+f.name.value+'\nPhone: '+f.phone.value+'\nEmail: '+f.email.value+'\nVehicles / notes: '+(f.v.value||'Not provided');
 var ml='mailto:ngdfitz@msn.com?subject='+encodeURIComponent('Tour request: '+f.name.value)+'&body='+encodeURIComponent(b);
 var a=document.createElement('a');a.href=ml;a.target='_blank';a.rel='noopener';document.body.appendChild(a);a.click();document.body.removeChild(a);
-document.getElementById('done').style.display='block'});
+f.querySelector('.done').style.display='block'})});
+function toForm(e){var t=document.getElementById('sform');if(!t||!document.getElementById('p-storage').classList.contains('on'))return;e.preventDefault();t.scrollIntoView({behavior:'smooth'})}
+document.querySelectorAll('[data-to="sform"]').forEach(function(a){a.addEventListener('click',toForm)});
+document.querySelector('#bar .btn').addEventListener('click',toForm);
 
 /* GALLERY: to add a photo, add a line below. Format: [category, caption, aspect ratio, optional image address]
    Categories: s = stored collection, p = Pebble Beach, r = restoration, f = the facility */
@@ -521,7 +546,7 @@ var gf='all',cur=[],gcn=0;
 function gHTML(it,i,big){var r=it[2],has=!!it[3];var src=has?(IMG[it[3]]||it[3]):'';var inner=has?'<img src="'+src+'" alt="'+it[1]+'" loading="lazy" style="--r:'+r+(big?'':';object-position:'+(it[4]||'50% 50%'))+'">':'<div class="ph" style="--r:'+r+'">'+(big?'Photo: '+it[1]:'')+'</div>';return big?inner:'<button class="gi'+(has?'':' phi')+'" data-i="'+i+'" style="--r:'+r+';--t:'+TN[it[0]]+'" aria-label="View '+it[1]+'">'+inner+'</button>'}
 function gRender(){var n=window.innerWidth>900?3:2;gcn=n;cur=PH.filter(function(p){return gf==='all'||p[0]===gf});
 var cols=[],h=[];for(var c=0;c<n;c++){cols.push('');h.push(0)}
-cur.forEach(function(it,i){var p=it[2].split('/'),hh=p[1]/p[0],m=0;for(var c=1;c<n;c++)if(h[c]<h[m]-0.02)m=c;cols[m]+=gHTML(it,i);h[m]+=hh});
+cur.forEach(function(it,i){var p=it[2].split('/'),hh=window.innerWidth<=600?1:p[1]/p[0],m=0;for(var c=1;c<n;c++)if(h[c]<h[m]-0.02)m=c;cols[m]+=gHTML(it,i);h[m]+=hh});
 document.getElementById('gcols').innerHTML=cols.map(function(c){return '<div class="gcol">'+c+'</div>'}).join('');
 document.getElementById('gcols').style.gridTemplateColumns='repeat('+n+',1fr)';
 document.getElementById('gcount').textContent='Showing '+cur.length+' photo'+(cur.length===1?'':'s')+'.'}
